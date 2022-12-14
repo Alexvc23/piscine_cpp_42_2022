@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   magaphone.cpp                                      :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 17:04:34 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/01 17:51:00 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/14 14:15:43 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,4 @@ int main(int ac, char **argv)
         std::cout << (char)std::toupper(buffer[i]);
     std::cout << std::endl;
     return (0);
-
 }

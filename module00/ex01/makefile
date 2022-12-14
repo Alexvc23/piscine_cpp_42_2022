@@ -1,10 +1,6 @@
-
 NAME = PhoneBook
-
-CC = g++
-
+CC = c++
 AT = 
-
 DIR_SRCS = ./srcs
 DIR_OBJS = ./objs
 INC_CONTACT = includes/Contact.hpp
@@ -21,7 +17,7 @@ all : $(NAME)
 $(NAME)	: $(OBJS)
 	$(AT) $(CC) $^ $(FLAGS) -o $@
 
-$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp
+$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp $(INC_CONTACT) $(INC_PHONEBOOK) makefile
 	$(AT) mkdir -p $(DIR_OBJS) 
 	$(AT)$(CC) $(FLAGS) -I$(INC_CONTACT) -I$(INC_PHONEBOOK)  -c $< -o $@ 
 clean:
@@ -40,6 +36,3 @@ print:
 re : fclean all 
 
 .PHONY: clean fclean re all
-
-
-

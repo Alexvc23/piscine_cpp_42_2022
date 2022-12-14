@@ -53,31 +53,31 @@ void Contact::add(int n_index)
 		{
 			std::cout << "Enter name: ";
 			std::getline(std::cin, this->_name);
-			this->checkErr(this->_name);
+			if (this->checkErr(this->_name)) return;
 		}
 		while (this->_last_name.empty())
 		{
 			std::cout << "Enter last name: ";
 			std::getline(std::cin, this->_last_name);
-			this->checkErr(this->_last_name);
+			if (this->checkErr(this->_last_name)) return;
 		}
 		while (this->_nick_name.empty())
 		{
 			std::cout << "Enter nickname: ";
 			std::getline(std::cin, this->_nick_name);
-			this->checkErr(this->_last_name);
+			if (this->checkErr(this->_last_name)) return;
 		}
 		while (this->_darkest_secret.empty())
 		{
 			std::cout << "Enter darkest secret: ";
 			std::getline(std::cin, this->_darkest_secret);
-			this->checkErr(this->_darkest_secret);
+			if (this->checkErr(this->_darkest_secret)) return;
 		}
 		while (this->_phone_number.empty())
 		{
 			std::cout << "Enter phone number: ";
 			std::getline(std::cin, this->_phone_number);
-			this->checkErr(this->_phone_number);
+			if (this->checkErr(this->_phone_number)) return;
 		}
 		this->_index = n_index;
 		this->_time = std::time(0); // seconds since 01-jan-1970
@@ -85,9 +85,11 @@ void Contact::add(int n_index)
 	return ;
 }
 
-void Contact::checkErr(std::string s)
+int Contact::checkErr(std::string s)
 {
 	int check = 0;
+	if (std::cin.eof()) // checks if we passed crl+d
+		return (1);
 	for (int i = 0; i < (int)s.length(); i++)
 	{
 		if (isalnum(s[i]))
@@ -98,7 +100,7 @@ void Contact::checkErr(std::string s)
 		this->erase();
 		std::cout << "You must enter an alphanumeric character\n";
 	}
-	return ;
+	return (0);
 }
 
 void Contact::search(int type)
@@ -112,10 +114,11 @@ void Contact::search(int type)
 	}
 	else if(type == SEARCH && !this->_name.empty())
 	{
-		std::cout << "index: " << this->_index << "\n" << "name: " <<
-		this->_name << "\n" << "last name: " << this->_last_name << "\n"
-		<< "nick name: " << this->_nick_name << "\n" << "phone number: "
-		<< this->_phone_number << "\n";
+		std::cout << "Index: " << this->_index << "\n" << "Name: " <<
+		this->_name << "\n" << "Last name: " << this->_last_name << "\n"
+		<< "Nick name: " << this->_nick_name << "\n" << "Phone number: "
+		<< this->_phone_number << "\n" << "Darkest Secret: " << this->_darkest_secret
+		<< "\n";
 	}
 	return ;
 }
@@ -139,7 +142,7 @@ std::string Contact::print(std::string s)
 	class
 	@return boolean (1, 0)
  **/
-int Contact::exits(void)
+int Contact::exist(void)
 {
 	if (this->_name.empty())
 		return (0); 

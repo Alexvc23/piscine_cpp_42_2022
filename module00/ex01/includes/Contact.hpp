@@ -39,11 +39,8 @@ class Contact
 		// Functions
 		void		add(int n_index);
 		void		search(int type);
-		int			exits(void);
+		int			exist(void);
 		int			getTime(void);
-		void		checkErr(std::string s);
-		void		erase(void);
-		std::string print(std::string s);
 
 	private:
 		std::string _name;
@@ -53,6 +50,11 @@ class Contact
 		std::string _darkest_secret;
 		int _index;
 		int _time;
+
+		// functions
+		void		erase(void);
+		int			checkErr(std::string s);
+		std::string print(std::string s);
 };
 
 #endif

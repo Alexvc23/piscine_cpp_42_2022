@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:47:04 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/07 10:05:28 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/14 10:59:25 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ class PhoneBook
 		Contact _t[8];
 		//variables
 };
+
+void check_cin(void);
 
 #endif

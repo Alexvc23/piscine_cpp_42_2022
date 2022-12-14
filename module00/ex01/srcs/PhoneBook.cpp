@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:46:56 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/07 10:05:22 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/14 16:28:56 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ PhoneBook & PhoneBook::operator=(const PhoneBook &assign)
 int PhoneBook::counter(void)
 {
 	int i = 0;
-	while (this->_t[i].exits() && i < 8) 
+	while (this->_t[i].exist() && i < 8) 
 		i++;
 	return (i);
 }
@@ -54,7 +54,7 @@ void PhoneBook::addContact(int current_index)
 {
 	int oldest = 0;
 
-	if (current_index == 8 && this->_t[current_index - 1].exits())
+	if (current_index == 8 && this->_t[current_index - 1].exist())
 	{
 		oldest = this->oldestIndex();
 		this->_t[oldest].add(oldest);
@@ -62,7 +62,6 @@ void PhoneBook::addContact(int current_index)
 	else
 		this->_t[current_index].add(current_index);
 }
-
 void PhoneBook::callSearch(void)
 {
 	int end = this->counter();
@@ -71,22 +70,29 @@ void PhoneBook::callSearch(void)
 
 	if (end)
 	{
-		while (this->_t[++i].exits() && i <= 7)
+		while (this->_t[++i].exist() && i <= 7)
 			this->_t[i].search(SHOW);
 		while ((search_index < 0 || search_index > (end - 1)))
 		{
-			std::cout << "Enter a number index to fetch full contact" 
-			<< " information: > ";
+			std::cout << "Enter a number index to fetch full contact"
+					  << " information: > ";
 			std::cin >> search_index;
 			std::cin.ignore();
-			if (search_index < 0 || search_index > (end - 1))
+			if (std::cin.eof())
+				return;
+			if (search_index < 0 || search_index > (end - 1) || std::cin.fail())
+			{
 				std::cout << "This number is not allowed, enter a"
-				<< " correct one\n";
+						  << " correct one\n";
+				check_cin();
+			}
 			else
 				this->_t[search_index].search(SEARCH);
 		}
 	}
-	return ;
+	else
+		std::cerr << "There are no contacts in the PhoneBook\n";
+	return;
 }
 
 /** 
@@ -109,4 +115,18 @@ int PhoneBook::oldestIndex(void)
 		}
 	}
 	return (index);
+}
+
+void check_cin(void)
+{
+    if (std::cin.fail())
+    {
+        std::cout << "ERROR -- You did not enter an integer\n";
+
+        // get rid of failure state
+        std::cin.clear();
+
+        // discard 'bad' character(s)
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 }

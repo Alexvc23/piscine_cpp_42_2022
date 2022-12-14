@@ -9,7 +9,6 @@ class Zombie
 	public:
 		// Constructors
 		Zombie();
-		Zombie(const Zombie &copy);
 		Zombie(std::string name);
 		
 		// Destructor
@@ -17,7 +16,7 @@ class Zombie
 		
 		// Getters / Setters
 		std::string getName() const;
-		void setName(std::string name);
+		void 		setName(std::string name);
 		void		announce(void);
 		
 	private:
