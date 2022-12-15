@@ -1,7 +1,7 @@
 
 NAME = exec 
 
-CC = g++
+CC = c++
 
 AT = 
 

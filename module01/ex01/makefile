@@ -1,7 +1,7 @@
 
 NAME = exec 
 
-CC = g++
+CC = c++
 
 AT = 
 
@@ -20,7 +20,7 @@ all : $(NAME)
 $(NAME)	: $(OBJS)
 	$(AT) $(CC) $^ -I$(INC) $(FLAGS) -o $@
 
-$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp includes/*
+$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp includes/* makefile
 	$(AT) mkdir -p $(DIR_OBJS) 
 	$(AT)$(CC) $(FLAGS) -I$(INC)  -c $< -o $@ 
 clean:
