@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 17:32:06 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/13 10:32:13 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/15 14:41:04 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int sed(char **argv, std::string str)
     int index_p = -1;
 
     outfile.open(std::string(argv[1]) + ".replase");
-    if (outfile.badbit)
+    if (outfile.fail())
     {
         std::cerr << "Problem creating outfile\n";
         return (-1);
@@ -53,7 +53,7 @@ int main(int ac, char **argv)
         return (-1);
     }
     file.open(std::string(argv[1]));
-    if (file.badbit)
+    if (file.fail())
     {
         std::cerr << std::string(std::string(argv[1]) + " : " +
                                  "No such file or directory");

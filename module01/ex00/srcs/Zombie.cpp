@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 07:32:55 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/12 10:50:25 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/15 16:23:39 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,6 @@ Zombie::Zombie(std::string name):_name(name)
 	std::cout << "\e[0;33mDefault Constructor called of Zombie " << _name 
 	<< "\e[0m" << std::endl;
 
-}
-
-Zombie::Zombie(const Zombie &copy)
-{
-	_name = copy.getName();
-	std::cout << "\e[0;33mCopy Constructor called of Zombie " << _name 
-	<< "\e[0m" << std::endl;
 }
 
 
