@@ -14,12 +14,12 @@ SRCS = $(addprefix $(DIR_SRCS)/,$(SRCS_FILES))
 OBJS = $(addprefix $(DIR_OBJS)/,$(OBJS_FILES))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-all : $(NAME) makefile
+all : $(NAME)
 
 $(NAME)	: $(OBJS)
 	$(AT) $(CC) $^ -I$(INC) $(FLAGS) -o $@
 
-$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp
+$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp includes/* makefile
 	$(AT) mkdir -p $(DIR_OBJS) 
 	$(AT)$(CC) $(FLAGS) -I$(INC)  -c $< -o $@ 
 clean:

@@ -16,10 +16,10 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all : $(NAME)
 
-$(NAME)	: $(OBJS) makefile
+$(NAME)	: $(OBJS)
 	$(AT) $(CC) $< -I$(INC) $(FLAGS) -o $@
 
-$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp
+$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp makefile
 	$(AT) mkdir -p $(DIR_OBJS) 
 	$(AT)$(CC) $(FLAGS) -I$(INC)  -c $< -o $@ 
 clean:
