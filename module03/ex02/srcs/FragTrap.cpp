@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 09:51:52 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/24 10:14:54 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/26 15:47:05 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ FragTrap::FragTrap(std::string name):ClapTrap(name)
 	_energyPoints = 100;
 	_attackDamage = 30;
 	_highFivesGuys = false;
-	std::cout << "\e[0;33mParameterized Constructor called " 
-	<< _name << std::endl;
+	std::cout << YELLOW << "FragTrap Parameterized Constructor called"
+	<< _name << END << std::endl;
 }
 
 
@@ -63,8 +63,7 @@ FragTrap & FragTrap::operator=(const FragTrap &assign)
 //methods
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "\e[0;33mFragTrap member method hightFivesGuys activated for " 
+	std::cout << "\e[0;33mFragTrap member method hightFivesGuys called for " 
 	<< _name << std::endl;
 	this->_highFivesGuys = true;
 }
-

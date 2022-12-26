@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 06:12:13 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/24 10:16:02 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/26 15:46:47 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ ScavTrap::ScavTrap():ClapTrap()
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
+	this->_guardGate = false;
 	std::cout << "\e[0;33mScavTrap Default Constructor called"  << 
 	_name << END << std::endl;
 }
@@ -28,6 +29,7 @@ ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
+	this->_guardGate = false;
 	std::cout << "\e[0;33mScavTrap parameterized Constructor called " << 
 	_name << END << std::endl;
 }
@@ -60,7 +62,9 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &another)
 	return *this;
 }
 
-void ScavTrap::guardGate(void) const
+void ScavTrap::guardGate(void)
 {
-	std::cout << BLUE << "ScavTrap: " << this->_name << " in mode gate keeper\n"; 
+	std::cout << YELLOW << "ScavTrap: guadGate member function called for " 
+	<<  this->_name << END << std::endl;
+	this->_guardGate = true;
 }
