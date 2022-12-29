@@ -6,14 +6,14 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:29:45 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/26 18:29:54 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/29 09:57:17 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "animal.hpp"
+# include "Animal.hpp"
 # include <iostream>
 # include <string>
 
@@ -29,6 +29,9 @@ class Dog: public Animal
 		
 		// Operators
 		Dog & operator=(const Dog &assign);
+
+		//methods
+		virtual void makeSound() const;
 };
 
 #endif

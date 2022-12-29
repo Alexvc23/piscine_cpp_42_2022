@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 // Constructors
-Cat::Cat():Animal()
+WrongCat::WrongCat():WrongAnimal()
 {
-	_type="Cat";	
-	std::cout << "\e[0;33mDefault Constructor called of Cat\e[0m" << std::endl;
+	_type="WrongCat";	
+	std::cout << "\e[0;33mDefault Constructor called of WrongCat\e[0m" << std::endl;
 }
 
-Cat::Cat(const Cat &copy):Animal(copy)
+WrongCat::WrongCat(const WrongCat &copy):WrongAnimal(copy)
 {
 	_type = copy.getType();
-	std::cout << "\e[0;33mCopy Constructor called of Cat\e[0m" << std::endl;
+	std::cout << "\e[0;33mCopy Constructor called of WrongCat\e[0m" << std::endl;
 }
 
 
 // Destructor
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "\e[0;31mDestructor called of Cat\e[0m" << std::endl;
+	std::cout << "\e[0;31mDestructor called of WrongCat\e[0m" << std::endl;
 }
 
 
 // Operators
-Cat & Cat::operator=(const Cat &assign)
+WrongCat & WrongCat::operator=(const WrongCat &assign)
 {
 	this->_type = assign.getType();
 	return *this;
-}
-
-void Cat::makeSound() const
-{
-	std::cout << BOLD << "MIIAUUU" << END << "\n";
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,51 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
 // Constructors
-Animal::Animal():_type("Animal")
+WrongAnimal::WrongAnimal():_type("WrongAnimal")
 {
-	std::cout << "\e[0;33m Animal Default Constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;33m WrongAnimal Default Constructor called\e[0m" << std::endl;
 }
 
-Animal::Animal(const Animal &copy)
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
 	_type = copy.getType();
-	std::cout << "\e[0;33mAnimal Copy Constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;33mWrongAnimal Copy Constructor called\e[0m" << std::endl;
 }
 
-Animal::Animal(std::string type)
+WrongAnimal::WrongAnimal(std::string type)
 {
 	_type = type;;
-	std::cout << "\e[0;33mAnimal Fields Constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;33mWrongAnimal Fields Constructor called\e[0m" << std::endl;
 }
 
 // Destructor
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "\e[0;31mAnimal Destructor called\e[0m" << std::endl;
+	std::cout << "\e[0;31mWrongAnimal Destructor called\e[0m" << std::endl;
 }
 
 // Operators
-Animal & Animal::operator=(const Animal &assign)
+WrongAnimal & WrongAnimal::operator=(const WrongAnimal &assign)
 {
-	std::cout << "\e[0;31m Animal overator overload = called\e[0m" << std::endl;
+	std::cout << "\e[0;31m WrongAnimal overator overload = called\e[0m" << std::endl;
 	_type = assign.getType();
 	return *this;
 }
 
 // Getters / Setters
-std::string Animal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return _type;
 }
-void Animal::setType(std::string type)
+void WrongAnimal::setType(std::string type)
 {
 	_type = type;
 }
 
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
-	std::cout << BOLD << "Animal doesn't make sound\n" << END;
+	std::cout << BOLD << "WrongAnimal doesn't make any sounds\n" << END;
 }

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Animal copy.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:30:00 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/29 10:28:35 by alexanderva      ###   ########.fr       */
+/*   Updated: 2022/12/29 10:45:10 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 # include <string>
@@ -33,19 +33,19 @@
 # define END	"\033[0m"
 # define CENTER	"\033[60G"
 
-class Animal
+class WrongAnimal
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(std::string type);
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &copy);
+		WrongAnimal(std::string type);
 		
 		// Destructor
-		virtual ~Animal();
+		virtual ~WrongAnimal();
 		
 		// Operators
-		Animal & operator=(const Animal &assign);
+		WrongAnimal & operator=(const WrongAnimal &assign);
 		
 		// Getters / Setters
 		std::string getType() const;
