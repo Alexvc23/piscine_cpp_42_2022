@@ -18,9 +18,8 @@ using std::endl;
 
 int main()
 {
-
     //Cat creation
-    Animal *animals[10];
+     Animal *animals[10];
     for (int i = 0; i < 5; i++)
     {
         animals[i] = new Cat();
@@ -72,8 +71,9 @@ int main()
 
 
     // Example showing the deep copy working properlty
-    cout << BOLD "-------------------------------------------------------\n";
+    cout << BOLD "--------------------CAT-----------------------------------\n";
     cout << BOLD << RED << "Example showing deep copy working\n\n" << END;
+    //cat
     cout << BOLD << "We create a " << PINK << "Cat object *i\n" << END; 
     Cat *i = new Cat();
     cout << "\n";
@@ -101,6 +101,40 @@ int main()
     //----------------------------------------------------------------------
     cout << BOLD << RED << "We delete *t object" << END << endl;
     delete t;
+
+
+
+    cout << "\n\n";
+    cout << BOLD "--------------------DOG-----------------------------------\n";
+    //Dog
+    cout << BOLD "Dog example\n";
+    cout << BOLD << "We create a " << PINK << "Dog object *a\n" << END; 
+    Dog *a = new Dog();
+    cout << "\n";
+    //----------------------------------------------------------------------
+    cout << BOLD << RED << "We feed this cat object with 5 " << END << BOLD 
+    << "Dog ideas\n" << END;
+    for (int j = 0; j < 5; j++)
+        a->feedIdeas("Dog Idea");
+    cout << "\n";
+    //----------------------------------------------------------------------
+    cout << BOLD << RED << "We Create a new " << END << BOLD << "Dog object *b" 
+    << END << BOLD << RED << " using overload operator passing as copy *a\n" << END;
+    Dog *b = new Dog(*a);
+    cout << "\n";
+    //----------------------------------------------------------------------
+    cout << BOLD << RED << "We delete *a object" << END << endl;
+    delete a;
+    cout << "\n";
+    //----------------------------------------------------------------------
+    cout << BOLD << RED << "Let's see *b object type and ideas" << END << endl;
+    cout << BOLD << "*a object type : " << CYAN << b->getType() << END 
+    << endl << endl;
+    b->printIdeas();
+    cout << "\n";
+    //----------------------------------------------------------------------
+    cout << BOLD << RED << "We delete *b object" << END << endl;
+    delete b;
 
     return 0;
 }
