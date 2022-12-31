@@ -71,7 +71,6 @@ int main()
     }
 
 
-y
     cout << BOLD "--------------------CAT-----------------------------------\n";
     cout << BOLD << RED << "Example showing deep copy working\n\n" << END;
     //cat
