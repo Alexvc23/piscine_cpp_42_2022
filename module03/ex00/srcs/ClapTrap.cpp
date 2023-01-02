@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:08:37 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/21 16:52:44 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 13:37:49 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 // Constructors
 ClapTrap::ClapTrap(): _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "\e[0;33mDefault Constructor called of ClapTrap\e[0m" 
-	<< std::endl;
+	std::cout << YELLOW << "Default Constructor called of ClapTrap " << END 
+	<< _name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -26,22 +26,24 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 	_hitPoints = copy.getHitPoints();
 	_energyPoints = copy.getEnergyPoints();
 	_attackDamage = copy.getAttackDamage();
-	std::cout << "\e[0;33mCopy Constructor called of ClapTrap\e[0m" << std::endl;
+	std::cout << YELLOW << "Copy Constructor called of ClapTrap " << _name
+	<< END; 
 }
 
 ClapTrap::ClapTrap(std::string name):_hitPoints(10), _energyPoints(10),
  _attackDamage(0)
 {
 	_name = name;
-	std::cout << "\e[0;33mFields Constructor called of ClapTrap\e[0m" 
-	<< std::endl;
+	std::cout << YELLOW << "Parameterized Constructor called of ClapTrap "
+	<< _name <<"\n" << END; 
 }
 
 
 // Destructor
 ClapTrap::~ClapTrap()
 {
-	std::cout << "\e[0;31mDestructor called of ClapTrap\e[0m" << std::endl;
+	std::cout << YELLOW << "Destructor called of ClapTrap "
+	<< "\n" << END; 
 }
 
 
@@ -52,6 +54,8 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &assign)
 	_hitPoints = assign.getHitPoints();
 	_energyPoints = assign.getEnergyPoints();
 	_attackDamage = assign.getAttackDamage();
+	std::cout << YELLOW << "Overload operator called of ClapTrap "
+	<< _name << "\n" << END; 
 	return *this;
 }
 
