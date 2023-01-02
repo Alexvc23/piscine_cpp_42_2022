@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 09:51:03 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/26 15:37:48 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 15:30:26 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class ScavTrap: public ClapTrap
 		ScavTrap & operator=(const ScavTrap &another);
 
 		void guardGate();
+
 	private:
 		bool _guardGate;
 };

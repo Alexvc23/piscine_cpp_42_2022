@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 09:51:52 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/26 15:47:05 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 15:30:20 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ FragTrap::FragTrap():ClapTrap()
 	_energyPoints = 100;
 	_attackDamage = 30;
 	_highFivesGuys = false;
-	std::cout << "\e[0;33mFragTrap Default Constructor called " 
-	<< _name << std::endl;
+	std::cout << YELLOW << "FragTrap Default Constructor called " 
+	<< _name << END <<std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &copy):ClapTrap(copy)
 {
 	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of FragTrap\e[0m" << std::endl;
+	std::cout << YELLOW << "FragTrap Copy Constructor called " 
+	<< _name << END <<std::endl;
 }
 
 FragTrap::FragTrap(std::string name):ClapTrap(name)
@@ -36,23 +37,23 @@ FragTrap::FragTrap(std::string name):ClapTrap(name)
 	_energyPoints = 100;
 	_attackDamage = 30;
 	_highFivesGuys = false;
-	std::cout << YELLOW << "FragTrap Parameterized Constructor called"
-	<< _name << END << std::endl;
+	std::cout << YELLOW << "FragTrap Parameterized Constructor called " 
+	<< _name << END <<std::endl;
 }
 
 
 // Destructor
 FragTrap::~FragTrap()
 {
-	std::cout << "\e[0;33mFragTrap Destructor called " 
-	<< _name << std::endl;
+	std::cout << YELLOW << "FragTrap Destructor called " 
+	<< _name << END <<std::endl;
 }
 
 // Operators
 FragTrap & FragTrap::operator=(const FragTrap &assign)
 {
-	std::cout << "\e[0;33m FragTrap Operator = overload called "
-	<< this->_name <<  END << std::endl;
+	std::cout << YELLOW << "FragTrap Overload Opertor called " 
+	<< _name << END <<std::endl;
 	_name = assign.getName();
 	_hitPoints = assign.getHitPoints();
 	_energyPoints = assign.getEnergyPoints();
@@ -63,7 +64,6 @@ FragTrap & FragTrap::operator=(const FragTrap &assign)
 //methods
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "\e[0;33mFragTrap member method hightFivesGuys called for " 
-	<< _name << std::endl;
+	std::cout << BLUE << "ScavTrap: " << this->_name << " in highFivesGuys mode\n"; 
 	this->_highFivesGuys = true;
 }

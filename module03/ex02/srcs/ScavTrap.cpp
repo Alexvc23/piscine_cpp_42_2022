@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 06:12:13 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/26 15:46:47 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 15:30:49 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,23 @@
 // Constructors
 ScavTrap::ScavTrap():ClapTrap()
 {
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_name = "Default";
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	this->_guardGate = false;
-	std::cout << "\e[0;33mScavTrap Default Constructor called"  << 
+	std::cout << "\e[0;33mScavTrap Default Constructor called  " << 
 	_name << END << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 {
 	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	this->_guardGate = false;
-	std::cout << "\e[0;33mScavTrap parameterized Constructor called " << 
+	std::cout << "\e[0;33mScavTrap Parameterized Constructor called  " << 
 	_name << END << std::endl;
 }
 
@@ -40,14 +41,14 @@ ScavTrap::ScavTrap(const ScavTrap &copy):ClapTrap(copy)
 	_hitPoints = copy.getHitPoints();
 	_energyPoints = copy.getEnergyPoints();
 	_attackDamage = copy.getAttackDamage();
-	std::cout << "\e[0;33mScavTrap copy constructor called of name " << 
+	std::cout << "\e[0;33mScavTrap Copy constructor called " << 
 	_name << END << std::endl;
 }
 
 // Destructor
 ScavTrap::~ScavTrap()
 {
-	std::cout << "\e[0;33mScavTrap destructor called " << 
+	std::cout << "\e[0;33mScavTrap Destructor called " << 
 	_name << END << std::endl;
 }
 
@@ -64,7 +65,6 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &another)
 
 void ScavTrap::guardGate(void)
 {
-	std::cout << YELLOW << "ScavTrap: guadGate member function called for " 
-	<<  this->_name << END << std::endl;
-	this->_guardGate = true;
+	std::cout << BLUE << "ScavTrap: " << this->_name << " guardGate mode\n"; 
+	_guardGate = true;
 }

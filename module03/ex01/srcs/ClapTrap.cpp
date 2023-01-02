@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:08:37 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/02 14:30:07 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 14:48:57 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ClapTrap.hpp"
 
 // Constructors
-ClapTrap::ClapTrap(): _hitPoints(100), _energyPoints(50), _attackDamage(20)
+ClapTrap::ClapTrap(): _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << YELLOW << "ClapTrap Default Constructor called " << END 
 	<< _name << std::endl;
@@ -30,8 +30,8 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 	<< END << std::endl; 
 }
 
-ClapTrap::ClapTrap(std::string name):_hitPoints(100), _energyPoints(50),
- _attackDamage(20)
+ClapTrap::ClapTrap(std::string name):_hitPoints(10), _energyPoints(10),
+ _attackDamage(0)
 {
 	_name = name;
 	std::cout << YELLOW << "ClapTrap Parameterized Constructor called "

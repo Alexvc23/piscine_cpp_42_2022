@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 09:51:18 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/24 09:51:29 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 15:30:31 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ class FragTrap: public ClapTrap
 		//methods
 		void highFivesGuys(void);
 
-	private:
-		bool _highFivesGuys;
+			private : bool _highFivesGuys;
 };
 
 #endif
