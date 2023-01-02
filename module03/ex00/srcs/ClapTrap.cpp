@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:08:37 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/02 13:37:49 by jvalenci         ###   ########.fr       */
+/*   Updated: 2023/01/02 13:58:59 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ClapTrap::ClapTrap(std::string name):_hitPoints(10), _energyPoints(10),
 ClapTrap::~ClapTrap()
 {
 	std::cout << YELLOW << "Destructor called of ClapTrap "
-	<< "\n" << END; 
+	<< _name <<  "\n" << END; 
 }
 
 
