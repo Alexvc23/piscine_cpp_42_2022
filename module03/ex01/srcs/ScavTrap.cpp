@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 06:12:13 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/24 10:22:09 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 14:39:14 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,16 @@
 // Constructors
 ScavTrap::ScavTrap():ClapTrap()
 {
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
 	this->_guardGate = false;
-	std::cout << "\e[0;33mScavTrap Default Constructor called of name " << 
+	std::cout << "\e[0;33mScavTrap Default Constructor called  " << 
 	_name << END << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 {
 	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
 	this->_guardGate = false;
-	std::cout << "\e[0;33mScavTrap parameterized Constructor called of name " << 
+	std::cout << "\e[0;33mScavTrap Parameterized Constructor called  " << 
 	_name << END << std::endl;
 }
 
@@ -40,20 +34,20 @@ ScavTrap::ScavTrap(const ScavTrap &copy):ClapTrap(copy)
 	_hitPoints = copy.getHitPoints();
 	_energyPoints = copy.getEnergyPoints();
 	_attackDamage = copy.getAttackDamage();
-	std::cout << "\e[0;33mScavTrap copy constructor called of name " << 
+	std::cout << "\e[0;33mScavTrap Copy constructor called " << 
 	_name << END << std::endl;
 }
 
 // Destructor
 ScavTrap::~ScavTrap()
 {
-	std::cout << "\e[0;33mScavTrap destructor called of name " << 
+	std::cout << "\e[0;33mScavTrap Destructor called " << 
 	_name << END << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &another)
 {
-	std::cout << "\e[0;33mScavTrap operator overload of name " << 
+	std::cout << "\e[0;33mScavTrap operator overload " << 
 	_name << END << std::endl;
 	_name = another.getName();
 	_hitPoints = another.getHitPoints();

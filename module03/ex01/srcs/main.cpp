@@ -12,66 +12,100 @@
 
 #include"ScavTrap.hpp"
 
+using std::cout;
+using std::endl;
+
 int main(void)
 {
+    cout << BOLD << "----------------------------------------------------\n"
+    << END;
+    cout << BOLD << RED "We create two objects Kevin and Antonio\n" << END;
     // object instantce
     ClapTrap a("Kevin"); // Kevin object
     ScavTrap b("Antonio"); // Antonio Object
 
+    
     // Kevin info
-    std::cout << BLUE << "ClapTrap: " << a.getName() << " Hit Points: " 
+    cout << BOLD << "ClapTrap: " << a.getName() << " Hit Points: " 
     << a.getHitPoints() << " Energy points: " << a.getEnergyPoints()
-    << " Attack damage: " << a.getAttackDamage() << std::endl;
+    << " Attack damage: " << a.getAttackDamage() << endl;
 
     // Antonio info
-    std::cout << BLUE << "ScavTrap: " << b.getName() << " Hit Points: " 
+    cout << BOLD << "ScavTrap: " << b.getName() << " Hit Points: " 
     << b.getHitPoints() << " Energy points: " << b.getEnergyPoints()
-    << " Attack damage: " << b.getAttackDamage() << std::endl << END;
+    << " Attack damage: " << b.getAttackDamage() << endl << END;
 
+    cout << BOLD << "----------------------------------------------------\n"
+    << END;
+    cout << BOLD << RED "We set Antonio Energy points to 66\n" << END;
     b.setEnergyPoints(66); // we change Antonio's energy points
-    ScavTrap c = b; // we call copy constructor to create a copy of Antonio 
+    cout << BOLD << "ScavTrap: " << b.getName() << " Hit Points: " 
+    << b.getHitPoints() << " Energy points: " << b.getEnergyPoints()
+    << " Attack damage: " << b.getAttackDamage() << endl << END;
 
     // Object c
-    std::cout << BLUE << "ScavTrap: " << c.getName() << " Hit Points: " 
+    cout << BOLD << "----------------------------------------------------\n"
+    << END;
+    cout << BOLD << RED "We create a new object using copy costructor c = b\n" << END;
+    ScavTrap c = b; // we call copy constructor to create a copy of Antonio 
+    cout << BOLD << "ScavTrap: " << c.getName() << " Hit Points: " 
     << c.getHitPoints() << " Energy points: " << c.getEnergyPoints()
-    << " Attack damage: " << c.getAttackDamage() << std::endl << END;
+    << " Attack damage: " << c.getAttackDamage() << endl << END;
 
+    cout << BOLD << "----------------------------------------------------\n"
+    << END;
+    cout << BOLD << RED "We create two ScavTrap objects Willy and Jonny\n" << END;
     ScavTrap h("Willy");
-
-    std::cout << BLUE << "ScavTrap: " << h.getName() << " Hit Points: " 
+    cout << BOLD << "ScavTrap: " << h.getName() << " Hit Points: " 
     << h.getHitPoints() << " Energy points: " << h.getEnergyPoints()
-    << " Attack damage: " << h.getAttackDamage() << std::endl << END;
-
+    << " Attack damage: " << h.getAttackDamage() << endl << END;
     ScavTrap i("Jonny");
-    std::cout << BLUE << "ScavTrap: " << i.getName() << " Hit Points: " 
+    cout << BOLD << "ScavTrap: " << i.getName() << " Hit Points: " 
     << i.getHitPoints() << " Energy points: " << i.getEnergyPoints()
-    << " Attack damage: " << i.getAttackDamage() << std::endl << END;
+    << " Attack damage: " << i.getAttackDamage() << endl << END;
+
+    cout << BOLD << "----------------------------------------------------\n"
+    << END;
+    cout << BOLD << RED "Then we use overload opeartor to reassign values of Jonny\n" << END;
     i = h; // overload operator = called 
 
-    std::cout << BLUE << "ScavTrap: " << i.getName() << " Hit Points: " 
+    cout << BOLD << RED "Now Jonny took all the values of Willy so we have just a copy of Willy\n" << END;
+    cout << BOLD << "ScavTrap: " << i.getName() << " Hit Points: " 
     << i.getHitPoints() << " Energy points: " << i.getEnergyPoints()
-    << " Attack damage: " << i.getAttackDamage() << std::endl << END;
+    << " Attack damage: " << i.getAttackDamage() << endl << END;
 
     //Kevin attacks "Willy"
+    cout << BOLD << "----------------------------------------------------\n"
+    << END;
+    cout << BOLD << RED "Now we will do a demostration with Kevin attackig Willy\n" << END;
     a.setAttackDamage(10);
     for (int i = 0; i < 5; i++)
     {
         a.attack("Willy");
         h.takeDamage(10);
     }
-    std::cout << BLUE << "ScavTrap: " << h.getName() << " Hit Points: " 
+    cout << BOLD << "ScavTrap: " << h.getName() << " Hit Points: " 
     << h.getHitPoints() << " Energy points: " << h.getEnergyPoints()
-    << " Attack damage: " << h.getAttackDamage() << std::endl << END;
-    std::cout << BLUE << "ClapTrap: " << a.getName() << " Hit Points: " 
+    << " Attack damage: " << h.getAttackDamage() << endl << END;
+    cout << BOLD << "ClapTrap: " << a.getName() << " Hit Points: " 
     << a.getHitPoints() << " Energy points: " << a.getEnergyPoints()
-    << " Attack damage: " << a.getAttackDamage() << std::endl;
+    << " Attack damage: " << a.getAttackDamage() << endl;
 
     //Willy attacks "Kevin"
+    cout << BOLD << "----------------------------------------------------\n"
+    << END;
+    cout << BOLD << RED "Now Willy attacks kevin\n" << END;
     for (int i = 0; i < 5; i++)
     {
         h.attack("Kevin");
         a.takeDamage(h.getAttackDamage());
     }
+    cout << BOLD << "ScavTrap: " << h.getName() << " Hit Points: " 
+    << h.getHitPoints() << " Energy points: " << h.getEnergyPoints()
+    << " Attack damage: " << h.getAttackDamage() << endl << END;
+    cout << BOLD << "ClapTrap: " << a.getName() << " Hit Points: " 
+    << a.getHitPoints() << " Energy points: " << a.getEnergyPoints()
+    << " Attack damage: " << a.getAttackDamage() << endl;
     h.guardGate();
     return (0);
 }
