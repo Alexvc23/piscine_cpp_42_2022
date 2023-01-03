@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 06:12:13 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/02 15:30:49 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/03 14:45:58 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ ScavTrap::ScavTrap():ClapTrap()
 
 ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 {
-	this->_name = name;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
@@ -63,8 +62,33 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &another)
 	return *this;
 }
 
+void ScavTrap::attack(const std::string &target)
+{
+
+	if (this->_hitPoints > 0 && this->_energyPoints > 0)
+	{
+		std::cout << BLUE << "ScavTrap " << this->_name << " attacks " << target
+				  << ", causing " << this->_attackDamage << " points of damage\n"
+				  << END;
+		this->_energyPoints--;
+	}
+	else if (!this->_energyPoints)
+	{
+		std::cout << BLUE << "ScavTrap" << _name
+				  << " cannot attack because he hasn't enought points of energy\n"
+				  << END;
+	}
+	else
+	{
+		std::cout << BLUE << "ScavTrap" << _name
+				  << " cannot attack because he hasn't enought hit points \n"
+				  << END;
+	}
+}
+
 void ScavTrap::guardGate(void)
 {
-	std::cout << BLUE << "ScavTrap: " << this->_name << " guardGate mode\n"; 
+	std::cout << BOLD << "ScavTrap: " << this->_name << " in guardGate mode\n" 
+	<< END; 
 	_guardGate = true;
 }

@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:08:37 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/02 14:52:46 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/03 14:17:46 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,29 +69,29 @@ void ClapTrap::setName(std::string name)
 { _name = name;
 }
 
-int ClapTrap::getHitPoints() const
+unsigned int ClapTrap::getHitPoints() const
 {
 	return _hitPoints;
 }
-void ClapTrap::setHitPoints(int hitPoints)
+void ClapTrap::setHitPoints(unsigned int hitPoints)
 {
 	_hitPoints = hitPoints;
 }
 
-int ClapTrap::getEnergyPoints() const
+unsigned int ClapTrap::getEnergyPoints() const
 {
 	return _energyPoints;
 }
-void ClapTrap::setEnergyPoints(int energyPoints)
+void ClapTrap::setEnergyPoints(unsigned int energyPoints)
 {
 	_energyPoints = energyPoints;
 }
 
-int ClapTrap::getAttackDamage() const
+unsigned int ClapTrap::getAttackDamage() const
 {
 	return _attackDamage;
 }
-void ClapTrap::setAttackDamage(int attackDamage)
+void ClapTrap::setAttackDamage(unsigned int attackDamage)
 {
 	_attackDamage = attackDamage;
 }

@@ -36,7 +36,7 @@ int main(void)
     << " Attack damage: " << b.getAttackDamage() << endl << END;
     
     // katty
-    cout << BOLD << "ScavTrap: " << c.getName() << " Hit Points: " 
+    cout << BOLD << "FragTrap: " << c.getName() << " Hit Points: " 
     << c.getHitPoints() << " Energy points: " << c.getEnergyPoints()
     << " Attack damage: " << c.getAttackDamage() << endl << END;
 
@@ -57,7 +57,7 @@ int main(void)
     }
 
     // katty
-    cout << BOLD << "ScavTrap: " << c.getName() << " Hit Points: " 
+    cout << BOLD << "FragTrap: " << c.getName() << " Hit Points: " 
     << c.getHitPoints() << " Energy points: " << c.getEnergyPoints()
     << " Attack damage: " << c.getAttackDamage() << endl << END;
     //Antonio

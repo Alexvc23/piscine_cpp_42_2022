@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 09:51:18 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/02 15:30:31 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/03 14:18:55 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class FragTrap: public ClapTrap
 {
 	public:
 		// Constructors
-		FragTrap();
 		FragTrap(const FragTrap &copy);
 		FragTrap(std::string name);
 		
@@ -35,8 +34,11 @@ class FragTrap: public ClapTrap
 
 		//methods
 		void highFivesGuys(void);
+		void attack(const std::string& target);
 
-			private : bool _highFivesGuys;
+	private:
+		FragTrap();
+		bool _highFivesGuys;
 };
 
 #endif

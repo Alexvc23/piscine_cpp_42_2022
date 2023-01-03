@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:02:00 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/24 09:50:14 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 19:26:26 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ class ClapTrap
 {
 	public:
 		// Constructors
-		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &copy);
 
@@ -52,12 +51,12 @@ class ClapTrap
 		// Getters / Setters
 		std::string getName() const;
 		void setName(std::string name);
-		int getHitPoints() const;
-		void setHitPoints(int hitPoints);
-		int getEnergyPoints() const;
-		void setEnergyPoints(int energyPoints);
-		int getAttackDamage() const;
-		void setAttackDamage(int attackDamage);
+		unsigned int getHitPoints() const;
+		void setHitPoints(unsigned int hitPoints);
+		unsigned int getEnergyPoints() const;
+		void setEnergyPoints(unsigned int energyPoints);
+		unsigned int getAttackDamage() const;
+		void setAttackDamage(unsigned int attackDamage);
 
 		//methods
 		virtual void attack(const std::string& target);
@@ -65,6 +64,7 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 
 	protected:
+		ClapTrap();
 		std::string _name;
 		unsigned int _hitPoints;
 		unsigned int _energyPoints;

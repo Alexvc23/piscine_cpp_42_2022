@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:02:00 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/24 06:29:49 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/02 19:29:53 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ class ClapTrap
 		// Getters / Setters
 		std::string getName() const;
 		void setName(std::string name);
-		int getHitPoints() const;
-		void setHitPoints(int hitPoints);
-		int getEnergyPoints() const;
-		void setEnergyPoints(int energyPoints);
-		int getAttackDamage() const;
-		void setAttackDamage(int attackDamage);
+		unsigned int getHitPoints() const;
+		void setHitPoints(unsigned int hitPoints);
+		unsigned int getEnergyPoints() const;
+		void setEnergyPoints(unsigned int energyPoints);
+		unsigned int getAttackDamage() const;
+		void setAttackDamage(unsigned int attackDamage);
 
 		//methods
 		virtual void attack(const std::string& target);

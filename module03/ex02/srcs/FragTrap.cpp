@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 09:51:52 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/02 15:30:20 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/03 14:45:37 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ FragTrap::FragTrap(const FragTrap &copy):ClapTrap(copy)
 
 FragTrap::FragTrap(std::string name):ClapTrap(name)
 {
-	_name = name;
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
@@ -61,9 +60,30 @@ FragTrap & FragTrap::operator=(const FragTrap &assign)
 	return *this;
 }
 
+void FragTrap::attack(const std::string &target)
+{
+	if (this->_hitPoints > 0 && this->_energyPoints > 0)
+	{
+		std::cout << BLUE << "FragTrap " << this->_name << " attacks " << target
+		<< ", causing " << this->_attackDamage << " points of damage\n" << END;
+		this->_energyPoints--;
+	}
+	else if (!this->_energyPoints)
+	{
+		std::cout << BLUE << "FragTrap" << _name 
+		<< " cannot attack because he hasn't enought points of energy\n" << END;
+	}
+	else
+	{
+		std::cout << BLUE << "FragTrap" << _name 
+		<< " cannot attack because he hasn't enought hit points \n" << END;
+	}
+}
+
 //methods
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << BLUE << "ScavTrap: " << this->_name << " in highFivesGuys mode\n"; 
+	std::cout << BOLD << "FragTrap: " << this->_name << " in highFivesGuys mode\n"
+	<< END; 
 	this->_highFivesGuys = true;
 }

@@ -52,28 +52,29 @@ int main(void)
     << c.getHitPoints() << " Energy points: " << c.getEnergyPoints()
     << " Attack damage: " << c.getAttackDamage() << endl << END;
 
+    // we create two new objects
     cout << BOLD << "----------------------------------------------------\n"
     << END;
     cout << BOLD << RED "We create two ScavTrap objects Willy and Jonny\n" << END;
-    ScavTrap h("Willy");
-    cout << BOLD << "ScavTrap: " << h.getName() << " Hit Points: " 
-    << h.getHitPoints() << " Energy points: " << h.getEnergyPoints()
-    << " Attack damage: " << h.getAttackDamage() << endl << END;
-    ScavTrap i("Jonny");
-    cout << BOLD << "ScavTrap: " << i.getName() << " Hit Points: " 
-    << i.getHitPoints() << " Energy points: " << i.getEnergyPoints()
-    << " Attack damage: " << i.getAttackDamage() << endl << END;
+    ScavTrap *h = new ScavTrap("Willy"); //Willy
+    cout << BOLD << "ScavTrap: " << h->getName() << " Hit Points: " 
+    << h->getHitPoints() << " Energy points: " << h->getEnergyPoints()
+    << " Attack damage: " << h->getAttackDamage() << endl << END;
+    ScavTrap *i = new ScavTrap("Jonny"); //Jonny
+    cout << BOLD << "ScavTrap: " << i->getName() << " Hit Points: " 
+    << i->getHitPoints() << " Energy points: " << i->getEnergyPoints()
+    << " Attack damage: " << i->getAttackDamage() << endl << END;
 
     cout << BOLD << "----------------------------------------------------\n"
     << END;
     cout << BOLD << RED "Then we use overload opeartor to reassign values of Jonny\n" << END;
-    i = h; // overload operator = called 
+    *i = *h; // overload operator = called 
 
     cout << BOLD << RED "Now Jonny took all the values of Willy so we have just a copy of Willy\n" << END;
-    cout << BOLD << "ScavTrap: " << i.getName() << " Hit Points: " 
-    << i.getHitPoints() << " Energy points: " << i.getEnergyPoints()
-    << " Attack damage: " << i.getAttackDamage() << endl << END;
-
+    cout << BOLD << "ScavTrap: " << i->getName() << " Hit Points: " 
+    << i->getHitPoints() << " Energy points: " << i->getEnergyPoints()
+    << " Attack damage: " << i->getAttackDamage() << endl << END;
+    delete i;
     //Kevin attacks "Willy"
     cout << BOLD << "----------------------------------------------------\n"
     << END;
@@ -82,11 +83,11 @@ int main(void)
     for (int i = 0; i < 5; i++)
     {
         a.attack("Willy");
-        h.takeDamage(10);
+        h->takeDamage(10);
     }
-    cout << BOLD << "ScavTrap: " << h.getName() << " Hit Points: " 
-    << h.getHitPoints() << " Energy points: " << h.getEnergyPoints()
-    << " Attack damage: " << h.getAttackDamage() << endl << END;
+    cout << BOLD << "ScavTrap: " << h->getName() << " Hit Points: " 
+    << h->getHitPoints() << " Energy points: " << h->getEnergyPoints()
+    << " Attack damage: " << h->getAttackDamage() << endl << END;
     cout << BOLD << "ClapTrap: " << a.getName() << " Hit Points: " 
     << a.getHitPoints() << " Energy points: " << a.getEnergyPoints()
     << " Attack damage: " << a.getAttackDamage() << endl;
@@ -97,15 +98,19 @@ int main(void)
     cout << BOLD << RED "Now Willy attacks kevin\n" << END;
     for (int i = 0; i < 5; i++)
     {
-        h.attack("Kevin");
-        a.takeDamage(h.getAttackDamage());
+        h->attack("Kevin");
+        a.takeDamage(h->getAttackDamage());
+        cout << "\n";
     }
-    cout << BOLD << "ScavTrap: " << h.getName() << " Hit Points: " 
-    << h.getHitPoints() << " Energy points: " << h.getEnergyPoints()
-    << " Attack damage: " << h.getAttackDamage() << endl << END;
+    cout << BOLD << "ScavTrap: " << h->getName() << " Hit Points: " 
+    << h->getHitPoints() << " Energy points: " << h->getEnergyPoints()
+    << " Attack damage: " << h->getAttackDamage() << endl << END;
     cout << BOLD << "ClapTrap: " << a.getName() << " Hit Points: " 
     << a.getHitPoints() << " Energy points: " << a.getEnergyPoints()
-    << " Attack damage: " << a.getAttackDamage() << endl;
-    h.guardGate();
+    << " Attack damage: " << a.getAttackDamage() << endl << END;
+    h->guardGate();
+    cout << BOLD << "----------------------------------------------------\n";
+    delete h;
+
     return (0);
 }
