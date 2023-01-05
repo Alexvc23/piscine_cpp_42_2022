@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:29:45 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/31 10:04:03 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/05 14:12:37 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ class Dog: public Animal
 		Dog & operator=(const Dog &assign);
 
 		//methods
-		virtual	std::string	getType() const;
-		virtual void		setType(std::string type);
 		virtual void		makeSound() const;
 		void				feedIdeas(std::string newIdea);
 		void				printIdeas() const;

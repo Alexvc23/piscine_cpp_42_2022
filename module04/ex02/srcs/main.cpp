@@ -136,5 +136,8 @@ int main()
     cout << BOLD << RED << "We delete *b object" << END << endl;
     delete b;
 
+    // Animal *t = new Animal();
+    // delete t;
+
     return 0;
 }

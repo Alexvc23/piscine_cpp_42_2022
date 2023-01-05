@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:29:22 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/31 09:42:37 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/05 13:13:31 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,6 @@ Cat &Cat::operator=(const Cat &assign)
 void Cat::makeSound() const
 {
 	cout << BOLD << "MIIAUUU" << END << "\n";
-}
-
-Brain *Cat::getBrain() const
-{
-	return this->_brain;
 }
 
 void Cat::feedIdeas(std::string newIdea)

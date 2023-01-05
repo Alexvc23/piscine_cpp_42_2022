@@ -44,7 +44,7 @@ int main()
     << END << std::endl;
     
     //WrongAnimal
-    const WrongAnimal *WrongA = new WrongAnimal();
+    const WrongAnimal *WrongA = new WrongCat();
     std::cout << BOLD << RED <<  WrongA->getType() << END 
     << " makes the next sound: ";
     WrongA->makeSound();
@@ -79,6 +79,7 @@ int main()
     std::cout << BOLD "-------------------------------------------------------"
     << END << std::endl;
     delete meta;
+
     
     return 0;
 }

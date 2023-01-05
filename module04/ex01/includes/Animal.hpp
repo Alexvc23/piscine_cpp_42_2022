@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:30:00 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/31 07:56:27 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/05 13:15:46 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,14 @@ class Animal
 		// Getters / Setters
 		std::string		getType() const;
 		void			setType(std::string type);
-		virtual void	feedIdeas(std::string newIdea);
-		virtual void	printIdeas() const;
 
 		//methods
 		virtual void	makeSound() const;
+		virtual void	feedIdeas(std::string newIdea);
+		virtual void	printIdeas() const;
 		
 	protected:
 		std::string _type;
-		Brain *_brain;
 
 };
 

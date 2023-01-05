@@ -12,15 +12,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 	std::cout << "\e[0;33mCopy Constructor called of Bureaucrat\e[0m" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade):_name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade):_name(name)
 {
 	std::cout << "\e[0;33mParameterized Constructor called of Bureaucrat\e[0m" << std::endl;
 	try
 	{
-		if (grade < 1)
-			throw Bureaucrat::gradeToHighException();
-		else if (grade > 150)
-			throw Bureaucrat::gradeToLowException();
+		Bureaucrat::setGrade(grade);
 	}
 	catch(const Bureaucrat::gradeToHighException& e)
 	{

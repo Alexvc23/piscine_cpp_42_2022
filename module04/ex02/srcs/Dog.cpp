@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:29:29 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/31 10:02:58 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/05 14:17:10 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,6 @@ Dog & Dog::operator=(const Dog &assign)
 	
 }
 
-// Getters / Setters
-std::string Dog::getType() const
-{
-	return _type;
-}
-void Dog::setType(std::string type)
-{
-	_type = type;
-}
 
 void Dog::makeSound() const 
 {

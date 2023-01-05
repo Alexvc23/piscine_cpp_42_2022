@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal copy.hpp                                    :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:30:00 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/29 10:45:10 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/05 18:15:05 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class WrongAnimal
 		void setType(std::string type);
 
 		//methods
-		virtual void makeSound() const;
+		void makeSound() const;
 		
 	protected:
 		std::string _type;

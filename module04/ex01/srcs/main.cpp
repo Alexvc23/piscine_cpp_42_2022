@@ -85,7 +85,7 @@ int main()
     cout << "\n";
     //----------------------------------------------------------------------
     cout << BOLD << RED << "We Create a new " << END << BOLD << "Cat object *t" 
-    << END << BOLD << RED << " using overload operator and copy constructor\n" << END;
+    << END << BOLD << RED << "overload operator and copy constructor\n" << END;
     Cat *t = new Cat(*i);
     cout << "\n";
     //----------------------------------------------------------------------

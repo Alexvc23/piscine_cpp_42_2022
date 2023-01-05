@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:29:45 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/29 09:57:17 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/05 13:05:05 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Dog: public Animal
 		Dog & operator=(const Dog &assign);
 
 		//methods
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
 #endif

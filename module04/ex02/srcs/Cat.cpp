@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:29:22 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/31 10:02:12 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/05 14:16:52 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,6 @@ Cat &Cat::operator=(const Cat &assign)
 void Cat::makeSound() const
 {
 	cout << BOLD << "MIIAUUU" << END << "\n";
-}
-
-// Getters / Setters
-std::string Cat::getType() const
-{
-	return _type;
-}
-void Cat::setType(std::string type)
-{
-	_type = type;
 }
 
 Brain *Cat::getBrain() const

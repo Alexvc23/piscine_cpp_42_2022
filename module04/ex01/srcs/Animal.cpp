@@ -3,12 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:30:21 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/31 08:04:22 by alexanderva      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/*   Updated: 2023/01/05 13:17:22 by jvalenci         ###   ########.fr       */ /*                                                                            */ /* ************************************************************************** */
 
 #include "Animal.hpp"
 
@@ -55,7 +53,6 @@ void Animal::makeSound() const
 	std::cout << BOLD << "Animal doesn't make sound\n" << END;
 }
 
-void Animal::feedIdeas(std::string newIdea)
-{(void)newIdea;}
-void Animal::printIdeas() const
-{}
+void Animal::feedIdeas(std::string newIdea){(void)newIdea;}
+
+void Animal::printIdeas() const {}

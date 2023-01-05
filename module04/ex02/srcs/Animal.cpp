@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:30:21 by alexanderva       #+#    #+#             */
-/*   Updated: 2022/12/31 10:08:22 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/05 14:17:58 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,14 @@ Animal & Animal::operator=(const Animal &assign)
 	this->_type = assign.getType();
 	std::cout << BOLD << "Animal overload operator called" << END <<  std::endl;
 	return *this;
+}
+
+// Getters / Setters
+std::string Animal::getType() const
+{
+	return _type;
+}
+void Animal::setType(std::string type)
+{
+	_type = type;
 }
