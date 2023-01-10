@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:13:21 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/09 13:26:16 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/09 18:18:22 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,28 @@ Bureaucrat::Bureaucrat()
 	<< std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy):_name(copy.getName()),
+_grade(copy.getGrade())
 {
-	_grade = copy.getGrade();
-	std::cout << "\e[0;33mCopy Constructor called of Bureaucrat\e[0m" 
-	<< std::endl;
+	std::cout << BOLD << YELLOW << "Copy Constructor called of Bureaucrat" 
+	<< END << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade):_name(name), _grade(0), _init(true)
 {
-	std::cout << "\e[0;33mParameterized Constructor called of Bureaucrat\e[0m" 
-	<< std::endl;
+	std::cout << BOLD << YELLOW << "Parameterized Constructor called of Bureaucrat " 
+	<< _name << END << std::endl;
 	try
 	{
 		Bureaucrat::setGrade(grade);
 	}
 	catch(const Bureaucrat::gradeToHighException& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << BOLD << CYAN << e.what() << END << '\n';
 	}
 	catch(const Bureaucrat::gradeToLowException& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << BOLD << CYAN << e.what() << END << '\n';
 	}
 	
 }
@@ -48,7 +48,8 @@ Bureaucrat::Bureaucrat(const std::string name, int grade):_name(name), _grade(0)
 // Destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "\e[0;31mDestructor called of Bureaucrat\e[0m" << std::endl;
+	std::cout << BOLD << YELLOW << "Destructor called of Bureaucrat "
+	 << _name << std::endl;
 }
 
 
@@ -122,16 +123,6 @@ void Bureaucrat::decrement()
 	
 }
 
-const char *Bureaucrat::gradeToLowException::what() const throw()
-{
-	return "Grade to low";
-}
-
-const char *Bureaucrat::gradeToHighException::what() const throw()
-{
-	return "Grade to high";
-}
-
 void Bureaucrat::setGrade(int grade)
 {
 	if (grade > 150)
@@ -151,6 +142,35 @@ void Bureaucrat::setGrade(int grade)
 		_grade = grade;
 	}
 }
+
+void Bureaucrat::signForm(Form &e)
+{
+	std::string _reason;
+
+	if (e.getSigned())
+	{
+		std::cout << BOLD << GREY << _name << " signed "
+				  << e.getName() << END << "\n";
+	}
+	else
+	{
+		std::cout<< BOLD << GREY << (_reason = _grade > e.getRequiredToSign()? "Grade to low" :
+		"Grade has to be grater than 0") << END << "\n";
+	}
+}
+
+const char *Bureaucrat::gradeToLowException::what() const throw()
+{
+	return "Grade to low";
+}
+
+const char *Bureaucrat::gradeToHighException::what() const throw()
+{
+	return "Grade has to be greater than 0";
+}
+
+
+
 
 // Stream operators
 std::ostream & operator<<(std::ostream &stream, const Bureaucrat &object)
