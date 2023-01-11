@@ -20,9 +20,9 @@ Form::Form():_name("Default"), _signed(false), _requiredToSign(0)
 	<< _name << END << std::endl;
 }
 
-
-Form::Form(const std::string name, const int  requiredToSign, const int requiredToExec):_name(name), 
-_signed(false), _requiredToSign(requiredToSign), _requiredToExec(requiredToExec)
+Form::Form(const std::string name, const int  requiredToSign, 
+const int requiredToExec):_name(name), _signed(false), 
+_requiredToSign(requiredToSign), _requiredToExec(requiredToExec)
 {
 	std::cout << BOLD << YELLOW << "Parameterized Constructor called of Form: " 
 	<< _name << END << std::endl;

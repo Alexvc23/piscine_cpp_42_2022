@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:52:55 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/11 11:40:00 by jvalenci         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:27:25 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Form
 		int getRequiredToExec() const;
 
 		// Methods
-		void beSigned(Bureaucrat &a);
+		void beSigned(Bureaucrat &a) = 0;
 		
 	private:
 		//attributes
