@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:52:55 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/11 13:27:25 by jvalenci         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:07:15 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ class Form
 		};
 
 		class gradeToHighException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		class noSignedException: public std::exception
 		{
 			public:
 				virtual const char *what() const throw();

@@ -105,6 +105,11 @@ const char *Form::gradeToHighException::what() const throw()
 	return "Grade has to be greater than 0";	
 }
 
+const char *Form::noSignedException::what() const throw()
+{
+	return "Form hasn't been signed";	
+}
+
 // Stream operators
 std::ostream & operator<<(std::ostream &stream, const Form &object)
 {
