@@ -45,10 +45,11 @@ Form::~Form()
 // Operators
 Form & Form::operator=(const Form &assign)
 {
-	if (this == &assign)
-		return *this;
 	std::cout << BOLD << YELLOW << "Overload opeartor called of Form: " 
 	<< _name <<  END << std::endl;
+	if (this == &assign)
+		return *this;
+	*this = assign;
 	return *this;
 }
 
