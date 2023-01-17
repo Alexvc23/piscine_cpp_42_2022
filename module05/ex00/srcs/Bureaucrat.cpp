@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:13:21 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/09 13:26:16 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/12 09:31:54 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 	<< std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade):_name(name), _grade(0), _init(true)
+Bureaucrat::Bureaucrat(const std::string name, int grade):_name(name), _grade(grade)
 {
 	std::cout << "\e[0;33mParameterized Constructor called of Bureaucrat\e[0m" 
 	<< std::endl;
@@ -77,8 +77,6 @@ void Bureaucrat::increment()
 	int temp = _grade;	
 	try
 	{
-		if (_init == false)
-			throw 1;
 		Bureaucrat::setGrade(--temp);
 	}
 	catch(const Bureaucrat::gradeToLowException& e)
@@ -89,11 +87,6 @@ void Bureaucrat::increment()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	catch(int x)
-	{
-		std::cout  << BOLD << "Grade variable hasn't been initialized you\
- cannot increment\n" << END;
-	}
 }
 
 void Bureaucrat::decrement()
@@ -102,8 +95,6 @@ void Bureaucrat::decrement()
 	
 	try
 	{
-		if (_init == false)
-			throw 1;
 		Bureaucrat::setGrade(++temp);
 	}
 	catch(const Bureaucrat::gradeToLowException& e)
@@ -114,12 +105,6 @@ void Bureaucrat::decrement()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	catch(int x)
-	{
-		std::cout  << BOLD << "Grade variable hasn't been initialized you\
- cannot decrement\n" << END;
-	}
-	
 }
 
 const char *Bureaucrat::gradeToLowException::what() const throw()
@@ -135,21 +120,12 @@ const char *Bureaucrat::gradeToHighException::what() const throw()
 void Bureaucrat::setGrade(int grade)
 {
 	if (grade > 150)
-	{
-		_init = false;
 		throw Bureaucrat::gradeToLowException();
-	}
 	
 	else if (grade < 1)
-	{
-		_init = false;
 		throw Bureaucrat::gradeToHighException();
-	}
 	else 
-	{
-		_init = true;	
 		_grade = grade;
-	}
 }
 
 // Stream operators

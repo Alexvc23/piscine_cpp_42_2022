@@ -3,65 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:13:21 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/11 08:56:25 by jvalenci         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:33:11 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-// !Constructors
+//! Constructors
+using std::cout;
+
 Bureaucrat::Bureaucrat()
 {
-	std::cout << "\e[0;33mDefault Constructor called of Bureaucrat\e[0m" 
-	<< std::endl;
+	cout << BOLD << YELLOW 
+	<< "Default Constructor called of Bureaucrat\n" << END;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy):_name(copy.getName()),
-_grade(copy.getGrade())
+Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 {
-	std::cout << BOLD << YELLOW << "Copy Constructor called of Bureaucrat" 
-	<< END << std::endl;
+	_grade = copy.getGrade();
+	cout << BOLD << YELLOW 
+	<< "Copy Constructor called of Bureaucrat\n" << END;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade):_name(name), _grade(0), _init(true)
+Bureaucrat::Bureaucrat(const std::string name, int grade):_name(name), _grade(grade)
 {
-	std::cout << BOLD << YELLOW << "Parameterized Constructor called of Bureaucrat " 
-	<< _name << END << std::endl;
+	cout << BOLD << YELLOW 
+	<< "Parameterized Constructor called of Bureaucrat\n" << END;
 	try
 	{
 		Bureaucrat::setGrade(grade);
 	}
 	catch(const Bureaucrat::gradeToHighException& e)
 	{
-		std::cerr << BOLD << CYAN << e.what() << END << '\n';
+		std::cerr << e.what() << '\n';
 	}
 	catch(const Bureaucrat::gradeToLowException& e)
 	{
-		std::cerr << BOLD << CYAN << e.what() << END << '\n';
+		std::cerr << e.what() << '\n';
 	}
 	
 }
 
-// !Destructor
+//! Destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << BOLD << RED << "Destructor called of Bureaucrat "
-	 << _name << END <<  std::endl;
+	cout << BOLD << RED 
+	<< "Destructor called of Bureaucrat\n" << END;
 }
 
-// !Operators
+
+//! Operators
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign)
 {
+	cout << BOLD << "overload operator = called of Bureaucrat\n" << END;
 	if (this == &assign)
 		return *this;
 	_grade = assign.getGrade();
 	return *this;
 }
 
-// !Getters / Setters
+//! Getters / Setters
 const std::string Bureaucrat::getName() const
 {
 	return _name;
@@ -71,14 +75,12 @@ int Bureaucrat::getGrade() const
 	return _grade;
 }
 
-// !Methods
+//! Methods
 void Bureaucrat::increment()
 {
 	int temp = _grade;	
 	try
 	{
-		if (_init == false)
-			throw 1;
 		Bureaucrat::setGrade(--temp);
 	}
 	catch(const Bureaucrat::gradeToLowException& e)
@@ -89,11 +91,6 @@ void Bureaucrat::increment()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	catch(int x)
-	{
-		std::cout  << BOLD << "Grade variable hasn't been initialized you\
- cannot increment\n" << END;
-	}
 }
 
 void Bureaucrat::decrement()
@@ -102,8 +99,6 @@ void Bureaucrat::decrement()
 	
 	try
 	{
-		if (_init == false)
-			throw 1;
 		Bureaucrat::setGrade(++temp);
 	}
 	catch(const Bureaucrat::gradeToLowException& e)
@@ -113,32 +108,6 @@ void Bureaucrat::decrement()
 	catch(const Bureaucrat::gradeToHighException& e)
 	{
 		std::cerr << e.what() << '\n';
-	}
-	catch(int x)
-	{
-		std::cout  << BOLD << "Grade variable hasn't been initialized you\
- cannot decrement\n" << END;
-	}
-	
-}
-
-void Bureaucrat::setGrade(int grade)
-{
-	if (grade > 150)
-	{
-		_init = false;
-		throw Bureaucrat::gradeToLowException();
-	}
-	
-	else if (grade < 1)
-	{
-		_init = false;
-		throw Bureaucrat::gradeToHighException();
-	}
-	else 
-	{
-		_init = true;	
-		_grade = grade;
 	}
 }
 
@@ -167,14 +136,26 @@ const char *Bureaucrat::gradeToLowException::what() const throw()
 
 const char *Bureaucrat::gradeToHighException::what() const throw()
 {
-	return "Grade has to be greater than 0";
+	return "Grade to high";
 }
 
+void Bureaucrat::setGrade(int grade)
+{
+	if (grade > 150)
+		throw Bureaucrat::gradeToLowException();
+	
+	else if (grade < 1)
+		throw Bureaucrat::gradeToHighException();
+	else 
+		_grade = grade;
+}
 
-// ! Stream operators
+//! Stream operators
 std::ostream & operator<<(std::ostream &stream, const Bureaucrat &object)
 {
+	
+	cout << BOLD << "Overload operator << called of Bureaucrat\n" << END;
 	stream << BOLD <<  object.getName() << RED << ", bureaucrat grade " 
-	<< END << BOLD << object.getGrade() << END;
+	<< END << BOLD << object.getGrade() << "\n" << END;
 	return stream;
 }

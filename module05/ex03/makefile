@@ -15,7 +15,7 @@ OBJS = $(addprefix $(DIR_OBJS)/,$(OBJS_FILES))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all : $(NAME)
-	 ./$(NAME)
+	./$(NAME)
 
 $(NAME)	: $(OBJS)
 	$(AT) $(CC) $^ -I$(INC) $(FLAGS) -o $@
@@ -28,9 +28,6 @@ clean:
 
 fclean : clean
 	$(AT) rm -rf $(NAME) *shrubbery
-
-leaks: $(NAME)
-	leaks -atExit -- ./$(NAME)
 
 cws:
 	@mkdir includes srcs 

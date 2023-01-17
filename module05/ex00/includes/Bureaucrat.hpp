@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/16 12:04:13 by alexanderva       #+#    #+#             */
+/*   Updated: 2023/01/16 12:04:16 by alexanderva      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
@@ -8,34 +20,33 @@
 class Bureaucrat
 {
 	public:
-		// Constructors
+		//! Constructors
 		Bureaucrat(const Bureaucrat &copy);
 		Bureaucrat(const std::string name, int grade);
 		
-		// Destructor
+		//! Destructor
 		~Bureaucrat();
 		
-		// Operators
+		//! Operators
 		Bureaucrat & operator=(const Bureaucrat &assign);
 		
-		// Getters / Setters
+		//! Getters / Setters
 		const std::string getName() const;
 		int getGrade() const;
 
-		//methods
+		//! methods
 		void	increment(void);
 		void	decrement(void);
 		
 	private:
-		// attributes
+		//! attributes
 		const std::string	_name;
 		int					_grade;
-		bool 				_init;
 
-		// Constructors
+		//! Constructors
 		Bureaucrat();
 
-		// Classes
+		//! Classes
 		class gradeToLowException : public std::exception
 		{
 			public:
@@ -47,7 +58,7 @@ class Bureaucrat
 				virtual const char *what() const throw();
 		};
 
-		//methods
+		//! methods
 		void setGrade(int grade);
 };
 

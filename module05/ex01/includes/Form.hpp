@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:52:55 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/11 13:52:45 by jvalenci         ###   ########.fr       */
+/*   Updated: 2023/01/12 15:19:15 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,37 +24,24 @@ class Bureaucrat;
 class Form
 {
 	public:
-		// Constructors
+		//! Constructors
 		Form(const std::string name, const int  requiredToSign,
 		 const int requiredToExec);
 		Form(const Form &copy);
 		
-		// Destructor
+		//! Destructor
 		~Form();
 		
-		// Getters / Setters
+		//! Getters / Setters
 		const std::string getName() const;
 		bool getSigned() const;
 		int  getRequiredToSign() const;
 		int getRequiredToExec() const;
 
-		// Methods
+		//! Methods
 		void beSigned(Bureaucrat &a);
-		
-	private:
-		//attributes
-		const std::string	_name;
-		bool 				_signed;
-		const int  			_requiredToSign;
-		const int			_requiredToExec;
 
-		//constructors
-		Form();
-		
-		// Operators
-		Form & operator=(const Form &assign);
-
-		// Classes
+		//! class exceptions 
 		class gradeToLowException : public std::exception
 		{
 			public:
@@ -66,9 +53,22 @@ class Form
 			public:
 				virtual const char *what() const throw();
 		};
+		
+	private:
+		//! Attributes
+		const std::string	_name;
+		bool 				_signed;
+		const int  			_requiredToSign;
+		const int			_requiredToExec;
+
+		//! Constructors
+		Form();
+		
+		//! Operators
+		Form & operator=(const Form &assign);
 };
 
-// Stream operators
+//! Stream operators
 std::ostream & operator<<(std::ostream &stream, const Form &object);
 
 #endif

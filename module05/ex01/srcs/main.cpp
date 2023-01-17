@@ -18,39 +18,83 @@ using std::cout;
 int main(void)
 {
 
-        // ?----------------------------------------------------------
+    // ?----------------------------------------------------------
+    cout << BOLD << "-------------------------------------------------"
+         << "-------------------\n"
+         << END;
     {
-        cout << BOLD << "--------- " << "Example passing wrong arguments" << BOLD 
-        << " -----------\n\n" END;
-        Bureaucrat a = Bureaucrat("Alex", 0);
+        cout << BOLD << "--------- Example passing wrong arguments" << BOLD
+             << " -----------\n\n" END;
+        Bureaucrat a = Bureaucrat("Alex", -1);
         Form f = Form("FormTest", 75, 98); //! we set a normal form
-        f.beSigned(a);                     //! we try to sign form taking
-        cout << f << "\n";                 //! Prints f attributes
-        a.signForm(f);                     //! We explain is f was signed or not
+
+        try
+        {
+            f.beSigned(a); //! we try to sign form taking
+            cout << a;     //! Prints a attributes
+            cout << f;     //! Prints f attributes
+            a.signForm(f); //! We explain is f was signed or not
+        }
+        catch (Form::gradeToLowException &e)
+        {
+            std::cerr << BOLD << CYAN << e.what() << END << '\n';
+        }
+        catch (Form::gradeToHighException &e)
+        {
+            std::cerr << BOLD << CYAN << e.what() << END << '\n';
+        }
     }
-        // ?----------------------------------------------------------
+    // ?----------------------------------------------------------
+    cout << BOLD << "-------------------------------------------------"
+         << "-------------------\n"
+         << END;
     {
-        cout << "\n";
-        cout << BOLD << "--------- " << RED 
-        << "Example passing good arguments" << END << BOLD 
-        << " -----------\n\n" END;
-        Bureaucrat a = Bureaucrat("Jimmy", 55);
-        Form f = Form("GoogleForm", 75, 98); //! we set a normal form
-        f.beSigned(a);                     //! we try to sign form taking
-        cout << f << "\n";                 //! Prints f attributes
-        a.signForm(f);                     //! We explain is f was signed or not
+        cout << BOLD << "--------- Example passing too low arguments to be signed" << BOLD
+             << " -----------\n\n" END;
+        Bureaucrat a = Bureaucrat("Jimmy", 78);
+        Form f = Form("FormTest", 75, 98); //! we set a normal form
+
+        try
+        {
+            f.beSigned(a); //! we try to sign form taking
+            cout << a;     //! Prints a attributes
+            cout << f;     //! Prints f attributes
+            a.signForm(f); //! We explain is f was signed or not
+        }
+        catch (Form::gradeToLowException &e)
+        {
+            std::cerr << BOLD << CYAN << e.what() << END << '\n';
+        }
+        catch (Form::gradeToHighException &e)
+        {
+            std::cerr << BOLD << CYAN << e.what() << END << '\n';
+        }
     }
-        // ?----------------------------------------------------------
+    // ?----------------------------------------------------------
+    cout << BOLD << "-------------------------------------------------"
+         << "-------------------\n"
+         << END;
     {
-        cout << "\n";
-        cout << BOLD << "--------- " << RED 
-        << "Example passing too low argument to be signed" << END << BOLD 
-        << " -----------\n\n" END;
-        Bureaucrat a = Bureaucrat("Jimmy", 76);
-        Form f = Form("GoogleForm", 75, 98); //! we set a normal form
-        f.beSigned(a);                     //! we try to sign form taking
-        cout << f << "\n";                 //! Prints f attributes
-        a.signForm(f);                     //! We explain is f was signed or not
+        cout << BOLD << "--------- Example passing proper arguments" << BOLD
+             << " -----------\n\n" END;
+        Bureaucrat a = Bureaucrat("Tonny", 55);
+        Form f = Form("FormTest", 75, 98); //! we set a normal form
+
+        try
+        {
+            f.beSigned(a); //! we try to sign form taking
+            cout << a;     //! Prints a attributes
+            cout << f;     //! Prints f attributes
+            a.signForm(f); //! We explain is f was signed or not
+        }
+        catch (Form::gradeToLowException &e)
+        {
+            std::cerr << BOLD << CYAN << e.what() << END << '\n';
+        }
+        catch (Form::gradeToHighException &e)
+        {
+            std::cerr << BOLD << CYAN << e.what() << END << '\n';
+        }
     }
     return 0;
 }

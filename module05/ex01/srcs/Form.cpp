@@ -47,6 +47,7 @@ Form & Form::operator=(const Form &assign)
 {
 	if (this == &assign)
 		return *this;
+	*this = assign;
 	std::cout << BOLD << YELLOW << "Overload opeartor called of Form: " 
 	<< _name <<  END << std::endl;
 	return *this;
@@ -75,23 +76,12 @@ int Form::getRequiredToExec() const
 void Form::beSigned(Bureaucrat &a)
 {
 	int tempGrade = a.getGrade();
-	try
-	{
 		if (tempGrade > 0 && tempGrade <= _requiredToSign)
 			_signed = true;
 		else if (tempGrade > 0 && tempGrade > _requiredToSign)
 			throw Form::gradeToLowException(); 
 		else
 			throw Form::gradeToHighException();
-	}
-	catch(Form::gradeToLowException &e)
-	{
-		std::cerr << BOLD << CYAN << e.what() <<  END << '\n';
-	}
-	catch(Form::gradeToHighException &e)
-	{
-		std::cerr << BOLD << CYAN << e.what() << END << '\n';
-	}
 }
 
 const char *Form::gradeToLowException::what() const throw()
@@ -107,10 +97,14 @@ const char *Form::gradeToHighException::what() const throw()
 // Stream operators
 std::ostream & operator<<(std::ostream &stream, const Form &object)
 {
+	std::string result;
+
+	std::cout << BOLD << "Over load operator <<  called of Form: " 
+	<< object.getName() << END << std::endl;
 	stream << BOLD << RED << "Name: " << END << BOLD << object.getName()
-	<< RED << " Signed: " << END << BOLD << object.getSigned() << 
-	RED << " Required grade: " << END << BOLD << object.getRequiredToSign()
-	<< RED << " Required to execute: " << END << BOLD << object.getRequiredToExec()
-	<< std::endl;
+	<< RED << " Signed: " << END << BOLD << (result = object.getSigned()? "True" 
+	: "False") << RED << " Required grade: " << END << BOLD 
+	<< object.getRequiredToSign() << RED << " Required to execute: " << END 
+	<< BOLD << object.getRequiredToExec() << std::endl;
 	return stream;
 }

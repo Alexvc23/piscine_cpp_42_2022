@@ -1,4 +1,3 @@
-#pragma once
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
@@ -8,16 +7,19 @@
 # include "Form.hpp"
 
 class Form;
+
 class Bureaucrat
 {
 	public:
 		// Constructors
-		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(const Bureaucrat &copy);
+		Bureaucrat(const std::string name, int grade);
 		
 		// Destructor
 		~Bureaucrat();
 		
+		// Operators
+		Bureaucrat & operator=(const Bureaucrat &assign);
 		
 		// Getters / Setters
 		const std::string getName() const;
@@ -32,13 +34,9 @@ class Bureaucrat
 		// attributes
 		const std::string	_name;
 		int					_grade;
-		bool 				_init;
 
 		// Constructors
 		Bureaucrat();
-
-		// Operators
-		Bureaucrat & operator=(const Bureaucrat &assign);
 
 		// Classes
 		class gradeToLowException : public std::exception
