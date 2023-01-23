@@ -6,36 +6,14 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 06:31:17 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/22 06:31:19 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/23 08:02:17 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "C.hpp"
 
-// Constructors
-C::C()
-{
-	std::cout << "\e[0;33mDefault Constructor called of C\e[0m" << std::endl;
-}
-
-C::C(const C &copy)
-{
-	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of C\e[0m" << std::endl;
-}
-
-
-// Destructor
+//! Destructor
 C::~C()
 {
 	std::cout << "\e[0;31mDestructor called of C\e[0m" << std::endl;
 }
-
-
-// Operators
-C & C::operator=(const C &assign)
-{
-	(void) assign;
-	return *this;
-}
-
