@@ -15,6 +15,7 @@ OBJS = $(addprefix $(DIR_OBJS)/,$(OBJS_FILES))
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all : $(NAME)
+	leaks -atExit -- ./$(NAME)
 
 $(NAME)	: $(OBJS)
 	$(AT) $(CC) $^ -I$(INC) $(FLAGS) -o $@
