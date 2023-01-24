@@ -19,7 +19,7 @@ all : $(NAME)
 $(NAME)	: $(OBJS)
 	$(AT) $(CC)  $(FLAGS) -I$(INC) $^   -o $@
 
-$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp makefile includes/*.hpp 
+$(DIR_OBJS)/%.o : $(DIR_SRCS)/%.cpp makefile includes/*.h 
 	$(AT) mkdir -p $(DIR_OBJS) 
 	$(AT)$(CC) -I$(INC) $(FLAGS)   -c $< -o $@ 
 clean:

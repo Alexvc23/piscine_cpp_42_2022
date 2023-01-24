@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:57:16 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/22 06:19:27 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/24 10:32:11 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ int main(void)
     cout <<  deserialization->nationality << endl;
     cout <<  deserialization->age << endl;
 
+    delete person;
     return 0;
 }
