@@ -45,11 +45,12 @@ public:
 		cout << BOLD << "overload operator = called\n" << END;
 		if (this != &other)
 		{
-			delete[] _data;
+			if (_data)
+				delete[] _data;
 			_size = other.size();
 			_data = new T[_size];
 			for (size_t i = 0; i < _size; i++)
-				_data = other._data[i];
+				_data[i] = other._data[i];
 		}
 		return *this;
 	}
