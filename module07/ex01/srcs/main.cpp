@@ -19,6 +19,7 @@ int main(void)
 {
     int myArray[] = {0, 1, 2 ,3 ,4, 5};
     char text[] = "tengo la camisa negra\n";
+    std::string lista[] = {"buenos", "dias", "amigitos", "como", "estan"};
 
     cout << BOLD << "--------------------------------------------------\n" << END; 
     cout << BOLD << GREEN << "Test incrementing by 1 each element of array\n" << endl << END;
@@ -33,6 +34,10 @@ int main(void)
     cout << "\n";
     iter(text, std::string(text).length(), toUpper);//! Do changes 
     iter(text, 6, print); //! print changes to the same array 
+    cout << "\n";
+    cout << BOLD << "--------------------------------------------------\n" << END; 
+    cout << BOLD << GREEN << "Test printing an array of strings\n" << endl << END;
+    iter(lista, (sizeof(lista) / sizeof(lista[0])), print);
     cout << "\n";
 
     return 0;

@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:42:41 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/23 13:02:22 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/25 13:53:32 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int main(void)
         cout << BOLD << GREEN << "Example using a string\n" << END;
         std::string a = "chaine1";
         std::string b = "chaine2";
+        cout << "a = " << a << " b = " << b << endl;
         cout << "swap(a, b) : " << END; 
         ::swap(a, b);
         cout << "a = " << a << ", b = " << b << endl;
