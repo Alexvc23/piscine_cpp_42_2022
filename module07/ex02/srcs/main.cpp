@@ -6,7 +6,7 @@
 /*   By: alexandervalencia <alexandervalencia@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:09:36 by alexanderva       #+#    #+#             */
-/*   Updated: 2023/01/24 13:02:05 by alexanderva      ###   ########.fr       */
+/*   Updated: 2023/01/25 14:56:35 by alexanderva      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ int main(int, char**)
     {
         cout << BOLD << BLUE << "\nTest using overload operator =\n" << END;
 
-        Array<int> *tmp = new Array<int>();
-        
+        Array<int> *tmp = numbers;
         cout << BOLD << "Array<int> numbers.size() = " << BLUE << tmp->size() << END << endl;
         delete numbers;
         cout << BOLD << RED << "after deleting numbers object\n" << END;
@@ -76,11 +75,9 @@ int main(int, char**)
         Array<int> *test = new Array<int>(*tmp);
         cout << BOLD << "tmp->size() = " << BLUE << tmp->size() << END << endl;
         cout << BOLD << RED << "after deleting tmp object\n" << END;
-        delete tmp;
         cout << BOLD << "test.size() = " << BLUE << test->size() << END << endl;
         delete test;
     }
-
     //--------------------------------------------------------------------
     cout << BOLD << "-----------------------------------------------\n" << END;
     Array<int> test(MAX_VAL);
